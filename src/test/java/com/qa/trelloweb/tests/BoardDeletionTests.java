@@ -1,5 +1,6 @@
 package com.qa.trelloweb.tests;
 
+import com.qa.trelloweb.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +9,7 @@ public class BoardDeletionTests extends  TestBase{
     @BeforeMethod(enabled = false)
     public void preconditions() throws InterruptedException {
         if(!app.user().isTrelloButtonOnHeader()){
-            app.user().login("rochman.elena@gmail.com", "12345.com");
+            app.user().login(new User().withUser("rochman.elena@gmail.com").withPassword("12345.com"));
         }
     }
 

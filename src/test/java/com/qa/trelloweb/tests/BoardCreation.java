@@ -1,5 +1,7 @@
 package com.qa.trelloweb.tests;
 
+import com.qa.trelloweb.model.Board;
+import com.qa.trelloweb.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +10,7 @@ public class BoardCreation extends TestBase {
     @BeforeMethod
     public void preconditions() throws InterruptedException {
         if(!app.user().isTrelloButtonOnHeader()){
-            app.user().login("rochman.elena@gmail.com", "12345.com");
+            app.user().login(new User().withUser("rochman.elena@gmail.com").withPassword("12345.com"));
         }
     }
 
@@ -20,7 +22,7 @@ public class BoardCreation extends TestBase {
 
         app.board().initBoardCreationFromHeader();
 
-        app.board().fillBoardCreationForm("test-board");
+        app.board().fillBoardCreationForm(new Board().withName("test-board"));
 
         Thread.sleep(15000);
         app.board().retunToHomePage();

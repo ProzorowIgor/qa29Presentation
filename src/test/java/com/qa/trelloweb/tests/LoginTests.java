@@ -1,5 +1,6 @@
 package com.qa.trelloweb.tests;
 
+import com.qa.trelloweb.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,7 +17,7 @@ public class LoginTests extends TestBase {
     @Test
     public void testLogin() throws InterruptedException {
         app.user().initLogin();
-        app.user().fillLoginForm("rochman.elena@gmail.com", "12345.com");
+        app.user().fillLoginForm(new User().withUser("rochman.elena@gmail.com").withPassword("12345.com"));
         app.user().submitLogin();
         Thread.sleep(15000);
 
@@ -32,7 +33,7 @@ public class LoginTests extends TestBase {
          * */
 
         app.user().initLogin();
-        app.user().fillLoginForm("rochman.elena@gmail.com", "");
+        app.user().fillLoginForm(new User().withUser("rochman.elena@gmail.com"));
         app.user().submitLogin();
         Thread.sleep(15000);
 

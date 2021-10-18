@@ -5,7 +5,7 @@
         <classes>
             <class name="com.qa.trelloweb.tests.LoginTests">
                 <methods>
-                    <exclude name="testLogin" />
+                    <include name="testLogin" />
                     <include name="negativeLoginWithoutPassword" />
                 </methods>
             </class>

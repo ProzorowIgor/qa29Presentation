@@ -1,5 +1,6 @@
 package com.qa.trelloweb.framework;
 
+import com.qa.trelloweb.model.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -9,6 +10,11 @@ public class BoardHelper extends HelperBase{
     }
 
     public void closeBoard() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         click(By.cssSelector(".js-close-board"));
         click(By.cssSelector(".js-confirm"));
         click(By.cssSelector(".js-delete"));
@@ -31,9 +37,9 @@ public class BoardHelper extends HelperBase{
         return wd.findElements(By.cssSelector(".boards-page-board-section-list-item")).size() - 1 - recentlyViewedBoardsCount();
     }
 
-    public void fillBoardCreationForm(String boardName) {
+    public void fillBoardCreationForm(Board board) {
         //fillBoardCreationForm
-        type(By.cssSelector("[data-test-id='create-board-title-input']"), boardName);
+        type(By.cssSelector("[data-test-id='create-board-title-input']"), board.getBoardName());
         //confirmBoardCreation
         click(By.cssSelector("[data-test-id='create-board-submit-button']"));
     }

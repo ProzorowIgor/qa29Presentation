@@ -1,5 +1,6 @@
 package com.qa.trelloweb.framework;
 
+import com.qa.trelloweb.model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -41,7 +42,7 @@ public class ApplicationManager{
         card = new CardHelper(wd);
         list = new ListHelper(wd);
 
-        user.login("rochman.elena@gmail.com", "12345.com");
+        user.login(new User().withUser("rochman.elena@gmail.com").withPassword("12345.com"));
     }
 
     public BoardHelper board() {

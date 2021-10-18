@@ -1,5 +1,6 @@
 package com.qa.trelloweb.framework;
 
+import com.qa.trelloweb.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,12 +12,12 @@ public class UserHelper extends HelperBase{
     public void initLogin() {
         click(By.cssSelector("[href='/login']"));
     }
-    public void login(String user, String password) throws InterruptedException {
+    public void login(User user) throws InterruptedException {
         click(By.cssSelector("[href='/login']"));
-        type(By.cssSelector("#user"), user);
+        type(By.cssSelector("#user"), user.getUser());
         Thread.sleep(2000);
         click(By.id("login"));
-        type(By.name("password"), password);
+        type(By.name("password"), user.getPassword());
         click(By.id("login-submit"));
         Thread.sleep(15000);
     }
@@ -31,14 +32,12 @@ public class UserHelper extends HelperBase{
         click(By.id("login-submit"));
     }
 
-    public void fillLoginForm(String user, String password) throws InterruptedException {
-        type(By.cssSelector("#user"), user);
+    public void fillLoginForm(User user) throws InterruptedException {
+        type(By.cssSelector("#user"), user.getUser());
 
         Thread.sleep(2000);
         click(By.id("login"));
-        type(By.name("password"), password);
+        type(By.name("password"), user.getPassword());
     }
-
-
 
 }

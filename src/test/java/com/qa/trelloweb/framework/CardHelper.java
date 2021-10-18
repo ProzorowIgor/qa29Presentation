@@ -1,5 +1,6 @@
 package com.qa.trelloweb.framework;
 
+import com.qa.trelloweb.model.Card;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,7 +19,22 @@ click(By.cssSelector(".js-add-a-card"));
         click(By.cssSelector(".js-add-card"));
     }
 
-    public void fillCreationForm(String cardName) {
-        type(By.cssSelector(".js-card-title"), cardName);
+    public void fillCreationForm(Card card) {
+
+        type(By.cssSelector(".js-card-title"), card.getCardName());
+        if(card.getColor()!=null) {
+            openCardMenu();
+            selectLabelsFromMenu();
+            click(By.cssSelector("[data-color=" + card.getColor() + "]"));
+        }
+
+    }
+
+    private void selectLabelsFromMenu() {
+        click(By.cssSelector(".js-label-selector"));
+    }
+
+    private void openCardMenu() {
+        click(By.cssSelector(".js-cc-menu"));
     }
 }
