@@ -11,8 +11,9 @@ public class CardHelper extends HelperBase{
 
 
     public void initCreation() {
-click(By.cssSelector(".js-add-a-card"));
 
+waitForElementAndClick(5, By.cssSelector(".js-add-a-card"));
+//input.js-add-card // blue button
     }
 
     public void confirmCreation() {

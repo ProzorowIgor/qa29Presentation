@@ -3,6 +3,8 @@ package com.qa.trelloweb.framework;
 import com.qa.trelloweb.model.Board;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BoardHelper extends HelperBase{
     public BoardHelper(WebDriver wd) {
@@ -41,8 +43,15 @@ public class BoardHelper extends HelperBase{
         //fillBoardCreationForm
         type(By.cssSelector("[data-test-id='create-board-title-input']"), board.getBoardName());
         //confirmBoardCreation
-        click(By.cssSelector("[data-test-id='create-board-submit-button']"));
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        waitForElementAndClick(4, By.cssSelector("[data-test-id='create-board-submit-button']"));
     }
+
+
 
     public void initBoardCreationFromHeader() {
         //clickCreateButtonOnHeader
