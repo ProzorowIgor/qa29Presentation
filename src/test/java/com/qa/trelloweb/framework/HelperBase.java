@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 
 public class HelperBase {
     WebDriver wd;
@@ -47,7 +49,7 @@ public class HelperBase {
             click(By.cssSelector("[data-test-id='header-home-button']"));
     }
     public void waitForElementAndClick(int timeOut, By locator) {
-        new WebDriverWait(wd, timeOut)
+        new WebDriverWait(wd, Duration.ofSeconds(timeOut))
                 .until(ExpectedConditions.elementToBeClickable(locator))
                 .click();
     }
