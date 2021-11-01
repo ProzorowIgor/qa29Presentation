@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 public class TestBase {
 
-//    ToDo: to check BrowserType in selenium 4
+//    ToDo: to check BrowserType in selenium 4 hahaha
 
     protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
     Logger logger = LoggerFactory.getLogger(TestBase.class);
