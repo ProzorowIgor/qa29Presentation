@@ -34,9 +34,9 @@ public class TestBase {
         logger.info("Stopped method " + m.getName());
     }
 
-    @AfterSuite(alwaysRun = true)
+  /*  @AfterSuite(alwaysRun = true)
     public void tearDown(){
-        app.stop();
-    }
+    app.stop();
+    }*/
 
 }

@@ -2,8 +2,10 @@ package com.qa.trelloweb.framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+/*import org.openqa.selenium.support.ui.WebDriverWait;*/
 
 import java.time.Duration;
 
@@ -49,7 +51,7 @@ public class HelperBase {
             click(By.cssSelector("[data-test-id='header-home-button']"));
     }
     public void waitForElementAndClick(int timeOut, By locator) {
-        new WebDriverWait(wd, Duration.ofSeconds(timeOut))
+        new WebDriverWait(wd, timeOut/*Duration.ofSeconds(timeOut)*/)
                 .until(ExpectedConditions.elementToBeClickable(locator))
                 .click();
     }
