@@ -50,16 +50,18 @@ waitForElementAndClick(5, By.cssSelector(".js-add-a-card"));
     public void changePlaceOfCard() {
         List<WebElement> allCards = new ArrayList<>(wd.findElements(By.cssSelector(".js-list.list-wrapper")));
         String str = allCards.get(0).getText();
-        System.out.println("======================================================"+str);
+        System.out.println("================================================="+str);//проверка пристутствует ли карта в коллекции
 
+        //actions.moveToElement(allCards.get(0)).clickAndHold().moveToElement(allCards.get(2)).release().build().perform();
+        // actions.dragAndDrop(allCards.get(0),allCards.get(2));
+        //вышестоящие методы не сработали, поетому попробовал по координатам ухватиться за верхушку карты
         Actions actions = new Actions(wd);
         Rectangle rec = allCards.get(0).getRect();
         int xFrom = rec.getX()+ rec.getWidth()/2;
         int y = rec.getY()+ rec.getHeight()/20;
         int xTo = xFrom + rec.getWidth()*2;
-        //actions.moveToElement(allCards.get(0)).clickAndHold().moveToElement(allCards.get(2)).release().build().perform();
-   // actions.dragAndDrop(allCards.get(0),allCards.get(2));
         actions.dragAndDropBy(allCards.get(0),xFrom,xTo);
+        //но это к сожалению тоже не пашет 
     }
 
     public void clickOnBoard() {
