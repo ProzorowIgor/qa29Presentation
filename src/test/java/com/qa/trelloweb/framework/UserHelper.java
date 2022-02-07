@@ -2,9 +2,14 @@ package com.qa.trelloweb.framework;
 
 import com.qa.trelloweb.model.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-public class UserHelper extends HelperBase{
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+
+public class UserHelper extends HelperBase {
     public UserHelper(WebDriver wd) {
         super(wd);
     }
@@ -12,6 +17,7 @@ public class UserHelper extends HelperBase{
     public void initLogin() {
         click(By.cssSelector("[href='/login']"));
     }
+
     public void login(User user) throws InterruptedException {
         click(By.cssSelector("[href='/login']"));
         type(By.cssSelector("#user"), user.getUser());
@@ -40,4 +46,17 @@ public class UserHelper extends HelperBase{
         type(By.name("password"), user.getPassword());
     }
 
+    public void openWindow(String path) {
+        ((JavascriptExecutor) wd).executeScript("window.open('"+path+"')");
+    }
+
+    public void chooseWindow(int i) {
+        LinkedHashSet<String> allWindows = new LinkedHashSet <>(wd.getWindowHandles()); //сортируем в коллекцию Set
+        List<String> myWindows = new ArrayList<String>(allWindows);//перебрасываем в другую коллекцию так как в из Set нет метода get элемент
+        System.out.println("============== "+allWindows.size());
+        wd.switchTo().window(myWindows.get(i)).close();
+
+        // List<String> allWindows = new ArrayList<>(wd.getWindowHandles()); 2-nd method
+        //wd.switchTo().window(allWindows.get(i)).close();
+    }
 }

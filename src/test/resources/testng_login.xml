@@ -3,7 +3,7 @@
 <suite name="Login" verbose="1" >
     <test name="login" >
         <classes>
-            <class name="com.qa.trelloweb.tests.LoginTests">
+            <class name="com.qa.trelloweb.tests.LoginTestsAndGetWindowHandle">
                 <methods>
                     <include name="testLogin" />
                     <exclude name="negativeLoginWithoutPassword" />

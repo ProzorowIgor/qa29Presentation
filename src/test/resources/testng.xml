@@ -3,7 +3,7 @@
 <suite name="SanityTests" verbose="1" >
     <test name="sanity" >
         <classes>
-            <class name="com.qa.trelloweb.tests.LoginTests" />
+            <class name="com.qa.trelloweb.tests.LoginTestsAndGetWindowHandle" />
             <class name="com.qa.trelloweb.tests.BoardCreation" />
             <class name="com.qa.trelloweb.tests.BoardDeletionTests" />
         </classes>

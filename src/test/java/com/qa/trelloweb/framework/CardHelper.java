@@ -61,7 +61,7 @@ waitForElementAndClick(5, By.cssSelector(".js-add-a-card"));
         int y = rec.getY()+ rec.getHeight()/20;
         int xTo = xFrom + rec.getWidth()*2;
         actions.dragAndDropBy(allCards.get(0),xFrom,xTo);
-        //но это к сожалению тоже не пашет 
+        //но это к сожалению тоже не пашет
     }
 
     public void clickOnBoard() {

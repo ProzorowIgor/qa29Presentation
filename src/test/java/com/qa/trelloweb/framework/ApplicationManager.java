@@ -16,6 +16,7 @@ public class ApplicationManager{
     CardHelper card;
     ListHelper list;
     String browser;
+    WindowHelper windowHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -41,6 +42,7 @@ public class ApplicationManager{
         user = new UserHelper(wd);
         card = new CardHelper(wd);
         list = new ListHelper(wd);
+        windowHelper = new WindowHelper(wd);
 
         user.login(new User().withUser("rochman.elena@gmail.com").withPassword("12345.com"));
     }
@@ -66,5 +68,7 @@ public class ApplicationManager{
     }
 
 
-
+    public WindowHelper getWindowHelper() {
+        return windowHelper;
+    }
 }
