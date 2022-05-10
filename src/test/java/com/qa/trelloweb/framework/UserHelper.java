@@ -51,8 +51,8 @@ public class UserHelper extends HelperBase {
     }
 
     public void chooseWindow(int i) {
-        LinkedHashSet<String> allWindows = new LinkedHashSet <>(wd.getWindowHandles()); //сортируем в коллекцию Set
-        List<String> myWindows = new ArrayList<>(allWindows);//перебрасываем в другую коллекцию так как в из Set нет метода get элемент
+        LinkedHashSet<String> allWindows = new LinkedHashSet <>(wd.getWindowHandles()); //sorting in collection Set
+        List<String> myWindows = new ArrayList<>(allWindows);//move all elements to another collection that has method "get"
         System.out.println("============== "+allWindows.size());
         wd.switchTo().window(myWindows.get(i)).close();
 
